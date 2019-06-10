@@ -59,7 +59,7 @@ public int check=0;
 
 
 
-
+//TODO RESCHEDULE THE CONDITION FOR  check%2==0 so that this function will be called only  for user chance
     if (check!=0){
        board.dropball(mtouchx,mtouchy,
                canvas,player1);
@@ -78,8 +78,10 @@ public int check=0;
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+
                 mtouchx = (int) event.getX();
                 mtouchy = (int) event.getY();
+                //TODO change the conditions for check%2==0
                 if (mtouchy>height/2)
                 {
                     if (player1)
@@ -87,7 +89,8 @@ public int check=0;
                     else player1=true;
                 check++;
                 invalidate();}
-                if (mtouchx>=500&&mtouchx<1000&&mtouchy>=300&&mtouchy<1500){
+
+                 else if (mtouchx>=2*width/3 -20 &&mtouchx<=2*width/3 +width/4 &&mtouchy>=height/6 - 40 &&mtouchy<height/6 +120){
                     if (player1)
                         player1=false;
                     else player1=true;
@@ -96,7 +99,10 @@ public int check=0;
                     invalidate();
 
                 }
-              break;
+                 break;
+
+                //todo put the condition for ai move check%2!=0 and call the invakuidate() option of the board class...
+
 
             default:
                 break;
